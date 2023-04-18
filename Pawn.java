@@ -11,7 +11,7 @@ public class Pawn extends ChessPiece{
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         boolean can = false;
-        if (chessBoard.chekToPos(line, column, toLine, toColumn))
+        if (chessBoard.checkToPos(line, column, toLine, toColumn))
             switch (toLine-line){
                 case 2:
                     if (color.equals("White")&&line==1) can=true;

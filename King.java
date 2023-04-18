@@ -11,7 +11,7 @@ public class King extends ChessPiece{
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         boolean can=false;
-        if (chessBoard.chekToPos(line, column, toLine, toColumn)&&
+        if (chessBoard.checkToPos(line, column, toLine, toColumn)&&
                 ((Math.abs(toLine-line)==1||Math.abs(toColumn-column)==1)))
             can=true;
         return can;
