@@ -50,4 +50,7 @@ public class ChessBoard {
     public boolean checkPos(int pos) {
         return pos >= 0 && pos <= 7;
     }
+    public boolean chekToPos(int startLine, int startColumn, int endLine, int endColumn){
+        return (startLine != endLine && startColumn != endColumn && checkPos(endLine)&&checkPos(endColumn));
+    }
 }
