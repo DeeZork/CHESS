@@ -1,4 +1,4 @@
-public class Horse extends ChessPiece{
+public class Horse extends ChessPiece {
     Horse(String color) {
         super(color);
     }
@@ -10,11 +10,21 @@ public class Horse extends ChessPiece{
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        return line!=toLine&&line>0&&line<8&&column!=toColumn&&column>0&&column<8;
+        boolean can = false;
+        if (line != toLine && line > 0 && line < 8 && column != toColumn && column > 0 && column < 8)
+            switch (Math.abs(toLine - line)) {
+                case 1:
+                    if (Math.abs(toColumn - column) == 3)
+                        can = true;
+                    break;
+                case 3:
+                    if (Math.abs(toColumn - column) == 1)
+                        can = true;
+            }
+        return can;
     }
-
-    @Override
-    public String getSymbol() {
-        return "H";
+        @Override
+        public String getSymbol () {
+            return "H";
+        }
     }
-}
