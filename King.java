@@ -23,7 +23,7 @@ public class King extends ChessPiece{
     }
 
     public boolean isUnderAttack(ChessBoard board, int line, int column){
-
+//        вызвать в цикле метод canMoveToPosition для каждой фигуры на доске противоположного цвета
         return false;
     }
 }
