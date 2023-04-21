@@ -21,4 +21,9 @@ public class King extends ChessPiece{
     public String getSymbol() {
         return "K";
     }
+
+    public boolean isUnderAttack(ChessBoard board, int line, int column){
+
+        return false;
+    }
 }

@@ -5,7 +5,7 @@ public class Horse extends ChessPiece {
 
     @Override
     public String getColor() {
-        return null;
+        return color;
     }
 
     @Override
@@ -14,10 +14,10 @@ public class Horse extends ChessPiece {
         if (chessBoard.checkToPos(line, column, toLine, toColumn))
             switch (Math.abs(toLine - line)) {
                 case 1:
-                    if (Math.abs(toColumn - column) == 3)
+                    if (Math.abs(toColumn - column) == 2)
                         can = true;
                     break;
-                case 3:
+                case 2:
                     if (Math.abs(toColumn - column) == 1)
                         can = true;
             }

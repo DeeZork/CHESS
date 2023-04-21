@@ -1,11 +1,12 @@
 public class Queen extends ChessPiece{
     Queen(String color) {
-        super(color);
+       super(color);
     }
 
     @Override
     public String getColor() {
         return color;
+
     }
 
     @Override

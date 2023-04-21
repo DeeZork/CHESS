@@ -23,7 +23,7 @@ public class ChessBoard {
                 }
 
                 board[endLine][endColumn] = board[startLine][startColumn]; // if piece can move, we moved a piece
-                board[startLine][startColumn] = null; // set null to previous cell
+                board[startLine][startColumn] = null;                       // set null to previous cell
                 this.nowPlayer = this.nowPlayerColor().equals("White") ? "Black" : "White";
 
                 return true;
@@ -57,8 +57,6 @@ public class ChessBoard {
     }
 
     public boolean castling0() {
-//        String pColor;// создать метод castling7 чтобы он вызывал метод castling0
-//        int pLine;
         if (nowPlayer.equals("White")) {
             if (board[0][0] == null || board[0][4] == null) return false;
             if (board[0][0].getSymbol().equals("R") && board[0][4].getSymbol().equals("K") && // check that King and Rook
@@ -96,9 +94,8 @@ public class ChessBoard {
         }
     }
 
-
     public boolean castling7() {
-         if (nowPlayer.equals("White")) {
+        if (nowPlayer.equals("White")) {
             if (board[0][7] == null || board[0][4] == null) return false;
             if (board[0][7].getSymbol().equals("R") && board[0][4].getSymbol().equals("K") && // check that King and Rook
                     board[0][5] == null && board[0][6] == null) {                            // never moved
@@ -135,7 +132,7 @@ public class ChessBoard {
         }
     }
 
-    public boolean checkToPos(int startLine, int startColumn, int endLine, int endColumn){
-        return (startLine != endLine && startColumn != endColumn && checkPos(endLine)&&checkPos(endColumn));
+    public boolean checkToPos(int startLine, int startColumn, int endLine, int endColumn) {
+        return (!(startLine == endLine && startColumn == endColumn) && checkPos(endLine) && checkPos(endColumn));
     }
 }

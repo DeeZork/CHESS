@@ -24,7 +24,6 @@ public class Pawn extends ChessPiece{
                     break;
                 case -1:
                     if (color.equals("Black")&&line<=6) can=true;
-                    break;
             }
         return can;
     }
