@@ -18,9 +18,9 @@ public class Pawn extends ChessPiece {
                         return true;
                     break;
                 case 1:
-                    if (color.equals("White") && column == toColumn && chessBoard.board[toLine][toColumn] == null)
+                    if ((color.equals("White") && column == toColumn && chessBoard.board[toLine][toColumn] == null) ||
+                            (color.equals("White") && Math.abs(column - toColumn) == 1))
                         return true;
-                    if (color.equals("White") && Math.abs(column - toColumn) == 1) return true;
                     break;
                 case -2:
                     if (color.equals("Black") && line == 6 && column == toColumn &&
@@ -28,9 +28,9 @@ public class Pawn extends ChessPiece {
                         return true;
                     break;
                 case -1:
-                    if (color.equals("Black") && column == toColumn && chessBoard.board[toLine][toColumn] == null)
+                    if ((color.equals("Black") && column == toColumn && chessBoard.board[toLine][toColumn] == null) ||
+                            (color.equals("Black") && Math.abs(column - toColumn) == 1))
                         return true;
-                    if (color.equals("Black") && Math.abs(column - toColumn) == 1) return true;
             }
         return false;
     }

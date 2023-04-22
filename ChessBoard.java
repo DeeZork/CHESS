@@ -21,7 +21,10 @@ public class ChessBoard {
                         board[startLine][startColumn].getSymbol().equals("R")) {
                     board[startLine][startColumn].check = false;
                 }
-
+                if (board[startLine][startColumn].getSymbol().equals("P") && endLine == 7)
+                    board[startLine][startColumn] = new Queen("White");
+                if (board[startLine][startColumn].getSymbol().equals("P") && endLine == 0)
+                    board[startLine][startColumn] = new Queen("Black");
                 board[endLine][endColumn] = board[startLine][startColumn]; // if piece can move, we moved a piece
                 board[startLine][startColumn] = null;                       // set null to previous cell
                 this.nowPlayer = this.nowPlayerColor().equals("White") ? "Black" : "White";
@@ -136,8 +139,8 @@ public class ChessBoard {
         if (!(startLine == endLine && startColumn == endColumn) && checkPos(endLine) && checkPos(endColumn)) {
             if (board[endLine][endColumn] == null) return true;
 //            else
-                if (!(board[endLine][endColumn].getColor().equals(board[startLine][startColumn].getColor())))
-                    return true;
+            if (!(board[endLine][endColumn].getColor().equals(board[startLine][startColumn].getColor())))
+                return true;
         }
         return false;
     }
