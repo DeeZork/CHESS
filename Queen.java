@@ -14,8 +14,10 @@ public class Queen extends ChessPiece{
         if (chessBoard.checkToPos(line, column, toLine, toColumn)&&
                 ((Math.abs(toLine-line)>0&&(toColumn-column)==0)||
                 (Math.abs(toColumn-column)>0&&(toLine-line)==0)||
-                (Math.abs(toLine-line)==Math.abs(toColumn-column))))
+                (Math.abs(toLine-line)==Math.abs(toColumn-column)))) {
+
             return true;
+        }
         return false;
     }
 
