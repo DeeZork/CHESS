@@ -1,4 +1,4 @@
-public class King extends ChessPiece{
+public class King extends ChessPiece {
     King(String color) {
         super(color);
     }
@@ -10,9 +10,9 @@ public class King extends ChessPiece{
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (chessBoard.checkToPos(line, column, toLine, toColumn)&&
-                ((Math.abs(toLine-line)<2&&Math.abs(toColumn-column)<2))&&
-                !isUnderAttack(chessBoard,toLine,toColumn)) return true;
+        if (chessBoard.checkToPos(line, column, toLine, toColumn) &&
+                ((Math.abs(toLine - line) < 2 && Math.abs(toColumn - column) < 2)) &&
+                !isUnderAttack(chessBoard, toLine, toColumn)) return true;
         return false;
     }
 
@@ -21,8 +21,13 @@ public class King extends ChessPiece{
         return "K";
     }
 
-    public boolean isUnderAttack(ChessBoard board, int line, int column){
-//        вызвать в цикле метод canMoveToPosition для каждой фигуры на доске противоположного цвета
+    public boolean isUnderAttack(ChessBoard board, int line, int column) {
+        for (int i = 0; i < 8; i++)
+            for (int k = 0; k < 8; k++) {
+                if (board.board[i][k]==null) continue;
+                if (board.nowPlayer.equals(board.board[i][k].getColor())) continue;
+                if (board.board[i][k].canMoveToPosition(board, i, k, line, column)) return true;
+            }
         return false;
     }
 }

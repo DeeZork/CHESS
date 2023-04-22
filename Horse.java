@@ -15,6 +15,7 @@ public class Horse extends ChessPiece {
                 case 1:
                     if (Math.abs(toColumn - column) == 2)
                         return true;
+                    break;
                 case 2:
                     if (Math.abs(toColumn - column) == 1)
                         return true;
