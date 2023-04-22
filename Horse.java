@@ -10,18 +10,16 @@ public class Horse extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        boolean can = false;
         if (chessBoard.checkToPos(line, column, toLine, toColumn))
             switch (Math.abs(toLine - line)) {
                 case 1:
                     if (Math.abs(toColumn - column) == 2)
-                        can = true;
-                    break;
+                        return true;
                 case 2:
                     if (Math.abs(toColumn - column) == 1)
-                        can = true;
+                        return true;
             }
-        return can;
+        return false;
     }
         @Override
         public String getSymbol () {

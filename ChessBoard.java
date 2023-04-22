@@ -133,6 +133,12 @@ public class ChessBoard {
     }
 
     public boolean checkToPos(int startLine, int startColumn, int endLine, int endColumn) {
-        return (!(startLine == endLine && startColumn == endColumn) && checkPos(endLine) && checkPos(endColumn));
+        if (!(startLine == endLine && startColumn == endColumn) && checkPos(endLine) && checkPos(endColumn)) {
+            if (board[endLine][endColumn] == null) return true;
+            else
+                if (!(board[endLine][endColumn].getColor().equals(board[startLine][startColumn].getColor())))
+                    return true;
+        }
+        return false;
     }
 }

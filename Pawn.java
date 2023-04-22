@@ -1,4 +1,4 @@
-public class Pawn extends ChessPiece{
+public class Pawn extends ChessPiece {
     Pawn(String color) {
         super(color);
     }
@@ -10,22 +10,18 @@ public class Pawn extends ChessPiece{
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        boolean can = false;
         if (chessBoard.checkToPos(line, column, toLine, toColumn))
-            switch (toLine-line){
+            switch (toLine - line) {
                 case 2:
-                    if (color.equals("White")&&line==1) can=true;
-                    break;
+                    if (color.equals("White") && line == 1 && column == toColumn) return true;
                 case 1:
-                    if (color.equals("White")&&line>=1) can=true;
-                    break;
+                    if (color.equals("White") && line >= 1) return true;
                 case -2:
-                    if (color.equals("Black")&&line==6) can=true;
-                    break;
+                    if (color.equals("Black") && line == 6 && column == toColumn) return true;
                 case -1:
-                    if (color.equals("Black")&&line<=6) can=true;
+                    if (color.equals("Black") && line <= 6) return true;
             }
-        return can;
+        return false;
     }
 
     @Override
